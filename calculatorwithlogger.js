@@ -58,8 +58,8 @@ function validateNumbers(operation, number, order) {
     result = "Cannot divide by zero. "
   }
   else if ( operation == 'sqrt' & number <0 & order == '1' ) {
-    //for square root, only need to check the first number is greater than or equal to zero - can't square root a negitive
-    result = "Cannot find a square root of a negitive number. "
+    //for square root, only need to check the first number is greater than or equal to zero - can't square root a negative
+    result = "Cannot find a square root of a negative number. "
   }
   else {
     result = "OK"

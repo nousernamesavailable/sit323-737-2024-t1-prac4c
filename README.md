@@ -24,7 +24,7 @@ Substitutions:
 
 {n1} and {n2} with numbers. 
 
-Note that decimals are valid numbers for all operations, and negitive numbers are valid for most. 
+Note that decimals are valid numbers for all operations, and negative numbers are valid for most. 
 
 Examples - 
 
@@ -40,7 +40,7 @@ Multiplication: {n1} * {n2}
 1) localhost:3040/mult?n1=3&n2=4
 Expected result: 12
 
-Divison: {n1} / {n2}
+Division: {n1} / {n2}
 1) localhost:3040/div?n1=3&n2=4
 Expected result: 0.75
 2) Error handling:
@@ -59,7 +59,7 @@ Expected result: 5
     a) localhost:3040/sqrt?n1=25&n2=44
     Expected result: 5 (as second param set to zero automatically)
     b) localhost:3040/sqrt?n1=-25
-    Expected result: Error: Cannot square root a negitive number
+    Expected result: Error: Cannot square root a negative number
 
 Modulo {n1} % {n2} 
 1) localhost:3040/mod?n1=10&n2=5
