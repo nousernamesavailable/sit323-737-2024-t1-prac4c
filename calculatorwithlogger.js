@@ -36,7 +36,16 @@ const multiply = (n1,n2) => {
   return n1*n2;
 }
 const divide = (n1,n2) => {
-  return n1/n2;
+  return n1/n2; 
+}
+const exponentiation = (n1, n2) => {
+  return n1**n2; 
+}
+const squareroot = (n1) => {
+  return Math.sqrt(n1); 
+}
+const modulo = (n1, n2) => {
+  return n1%n2; 
 }
 
 // Function for validating numbers based on the operation. 
@@ -48,10 +57,14 @@ function validateNumbers(operation, number, order) {
   else if ( operation == 'div' & number == 0 & order == '2' ) {
     result = "Cannot divide by zero. "
   }
+  else if ( operation == 'sqrt' & number <0 & order == '1' ) {
+    //for square root, only need to check the first number is greater than or equal to zero - can't square root a negitive
+    result = "Cannot find a square root of a negitive number. "
+  }
   else {
     result = "OK"
   }
-  return result
+  return result;
 }
 
 // Error handling function
@@ -148,6 +161,67 @@ app.get("/div", (req, res) => {
     res.status(200).json({statuscode:200, data: result})
   }
   catch(error) {
+    console.error(error)
+    res.status(500).json({statuscode: 500, msg: error.toString()})
+  }
+})
+
+// CREDIT API POINTS FROM HERE: 
+
+// exponentiation
+// api endpoint for /exp 
+app.get("/exp", (req, res) => {
+  try{
+    const operation = "exp"
+    const n1 = parseFloat(req.query.n1)
+    const n2 = parseFloat(req.query.n2)
+
+    errorHandling(operation, n1, n2)
+    
+    logger.info("Parameters " + n1 + " and " + n2 + " received for exponentiaition. ") 
+    const result = exponentiation(n1, n2)
+    res.status(200).json({statuscocde:200, data: result})
+  } 
+  catch(error) { 
+    console.error(error)
+    res.status(500).json({statuscode: 500, msg: error.toString()})
+  }
+})
+
+// squareroot - only needs one parameter 
+// api endpoint for /sqrt 
+app.get("/sqrt", (req, res) => {
+  try{
+    const operation = "sqrt"
+    const n1 = parseFloat(req.query.n1)
+
+    errorHandling(operation, n1, 0)
+    
+    logger.info("Parameter " + n1 + " received for squareroot. ") 
+    const result = squareroot(n1)
+    res.status(200).json({statuscocde:200, data: result})
+  } 
+  catch(error) { 
+    console.error(error)
+    res.status(500).json({statuscode: 500, msg: error.toString()})
+  }
+})
+
+// modulo 
+// api endpoint for /mod 
+app.get("/mod", (req, res) => {
+  try{
+    const operation = "mod"
+    const n1 = parseFloat(req.query.n1)
+    const n2 = parseFloat(req.query.n2)
+
+    errorHandling(operation, n1, n2)
+    
+    logger.info("Parameters " + n1 + " and " + n2 + " received for modulo. ") 
+    const result = modulo(n1, n2)
+    res.status(200).json({statuscocde:200, data: result})
+  } 
+  catch(error) { 
     console.error(error)
     res.status(500).json({statuscode: 500, msg: error.toString()})
   }

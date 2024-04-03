@@ -11,30 +11,55 @@ Enhance the error handling mechanism of the microservice to deliver more informa
 Getting started:
 - git clone <repository>
 - npm install 
-- node calculatorwithlogger.js 
+- either run node calculatorwithlogger.js OR nodemon from the folder 
 - in web browser, go to one of the following locations: 
 
 localhost:3040/${action}?n1=${n1}&n2=${n2}
 Substitutions:
-${action} with either add, subtract, multiply or divide 
+${action} with  add, subtract, multiply or divide 
 ${n1} and ${n2} with numbers. 
 
-Eg - 
+Note that decimals are valid numbers for all operations, and negitive numbers are valid for most. 
+
+Examples - 
 Addition: ${n1} + ${n2}
-localhost:3040/add?n1=3&n2=4
+1) localhost:3040/add?n1=3&n2=4
 Expected result: 7
 
 Subtract: ${n1} - ${n2}
-localhost:3040/sub?n1=3&n2=4
+1) localhost:3040/sub?n1=3&n2=4
 Expected result: -1
 
 Multiplication: ${n1} * ${n2}
-localhost:3040/mult?n1=3&n2=4
+1) localhost:3040/mult?n1=3&n2=4
 Expected result: 12
 
 Divison: ${n1} / ${n2}
-localhost:3040/div?n1=3&n2=4
+1) localhost:3040/div?n1=3&n2=4
 Expected result: 0.75
+2) Error handling:
+    a) localhost:3040/div?n1=74&n2=0
+    Expected result: Error: Cannot divide by zero. 
+
+ADDITIONAL OPERATIONS: 
+Exponentiation ${n1} ^ ${n2} 
+1) localhost:3040/exp?n1=2&n2=4
+Expected result: 16
+
+Square root: √${n1} 
+1) localhost:3040/sqrt?n1=25
+Expected result: 5
+2) Error handling:
+    a) localhost:3040/sqrt?n1=25&n2=44
+    Expected result: 5 (as second param set to zero automatically)
+    b) localhost:3040/sqrt?n1=-25
+    Expected result: Error: Cannot square root a negitive number
+
+Modulo ${n1} % ${n2} 
+1) localhost:3040/mod?n1=10&n2=5
+Expected result: 0
+2) localhost:3040/mod?n1=10&n2=3
+Expected result: 1
 
 
 Notes:
