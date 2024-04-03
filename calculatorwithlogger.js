@@ -99,7 +99,7 @@ app.get("/add", (req, res) => {
     
     logger.info("Parameters " + n1 + " and " + n2 + " received for addition. ") 
     const result = add(n1, n2)
-    res.status(200).json({statuscocde:200, data: result})
+    res.status(200).json({statuscode:200, data: result})
   } 
   catch(error) { 
     console.error(error)
@@ -180,7 +180,7 @@ app.get("/exp", (req, res) => {
     
     logger.info("Parameters " + n1 + " and " + n2 + " received for exponentiaition. ") 
     const result = exponentiation(n1, n2)
-    res.status(200).json({statuscocde:200, data: result})
+    res.status(200).json({statuscode:200, data: result})
   } 
   catch(error) { 
     console.error(error)
@@ -199,7 +199,7 @@ app.get("/sqrt", (req, res) => {
     
     logger.info("Parameter " + n1 + " received for squareroot. ") 
     const result = squareroot(n1)
-    res.status(200).json({statuscocde:200, data: result})
+    res.status(200).json({statuscode:200, data: result})
   } 
   catch(error) { 
     console.error(error)
@@ -219,7 +219,7 @@ app.get("/mod", (req, res) => {
     
     logger.info("Parameters " + n1 + " and " + n2 + " received for modulo. ") 
     const result = modulo(n1, n2)
-    res.status(200).json({statuscocde:200, data: result})
+    res.status(200).json({statuscode:200, data: result})
   } 
   catch(error) { 
     console.error(error)
