@@ -70,6 +70,6 @@ Expected result: 1
 
 Notes:
 
-Each API endpoint (/add, /sub, /mult and /div) refer to the same error handling function (specifically errorHandling() here) which validates numbers using  validateNumbers(). For this to work, each end point must pass in their operation name.
+Each API endpoint refers to the same error handling function (specifically errorHandling() here) which validates numbers using validateNumbers(). For this to work, each end point must pass in their operation name.
 
 This set up allows for specific edge cases (such as dividing by zero) to be resolved in the number validation/error handling functions. It also means that further adjustments (such as including additional operations) can be implemented with their specifics quite easily. 
